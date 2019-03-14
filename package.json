@@ -1,15 +1,11 @@
 {
-  "name": "autoclose-html",
-  "author": {
-    "name": "Matt Berkowitz"
-  },
+  "name": "autoclose-html-plus",
   "main": "./lib/autoclose-html",
   "version": "0.24.0",
-  "private": true,
-  "description": "Automates closing of HTML Tags",
+  "description": "Automates closing of HTML/XML type tags in Atom",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mattberkowitz/autoclose-html"
+    "url": "https://github.com/binaryfunt/autoclose-html-plus"
   },
   "license": "MIT",
   "engines": {
@@ -17,6 +13,14 @@
   },
   "dependencies": {},
   "contributors": [
+    {
+      "name": "Ronnie Dutta",
+      "url": "https://github.com/binaryfunt"
+    },
+    {
+      "name": "Matt Berkowitz",
+      "url": "https://github.com/mattberkowitz"
+    },
     {
       "name": "Evan Hahn",
       "email": "me@evanhahn.com",
@@ -30,13 +34,7 @@
   ],
   "readmeFilename": "README.md",
   "bugs": {
-    "url": "https://github.com/mattberkowitz/autoclose-html/issues"
+    "url": "https://github.com/binaryfunt/autoclose-html-plus/issues"
   },
-  "homepage": "https://github.com/mattberkowitz/autoclose-html",
-  "_id": "autoclose-html@0.8.0",
-  "dist": {
-    "shasum": "25792d1cf3395393c861bfcb919fe684f505af85"
-  },
-  "_resolved": "C:\\Users\\msilva\\AppData\\Local\\Temp\\d-114711-6236-8rgida\\package.tgz",
-  "_from": "C:\\Users\\msilva\\AppData\\Local\\Temp\\d-114711-6236-8rgida\\package.tgz"
+  "homepage": "https://github.com/binaryfunt/autoclose-html-plus"
 }
