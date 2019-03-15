@@ -114,15 +114,15 @@ module.exports =
 
         isInline = @isInline eleTag
 
-        if not isInline
-            editor.insertNewline()
-            editor.insertNewline()
         editor.insertText('</' + eleTag + '>')
-        if isInline
-            editor.setCursorBufferPosition range.end
-        else
+        editor.setCursorBufferPosition range.end
+        if not isInline
+            inlineCheckpoint = editor.createCheckpoint()
+            editor.insertNewline()
+            editor.insertNewline()
             editor.autoIndentBufferRow range.end.row + 1
             editor.setCursorBufferPosition [range.end.row + 1, atom.workspace.getActivePaneItem().getTabText().length * atom.workspace.getActivePaneItem().indentationForBufferRow(range.end.row + 1)]
+            editor.groupChangesSinceCheckpoint(inlineCheckpoint)
 
     _events: () ->
         atom.workspace.observeTextEditors (textEditor) =>
