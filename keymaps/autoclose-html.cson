@@ -11,3 +11,9 @@
 
 'atom-text-editor[data-grammar~="html"]':
 	'>': 'autoclose-html-plus:close-and-complete'
+
+'atom-text-editor[data-grammar~="xml"]':
+	'>': 'autoclose-html-plus:close-and-complete'
+
+'atom-text-editor[data-grammar~="gfm"]':
+	'>': 'autoclose-html-plus:close-and-complete'
