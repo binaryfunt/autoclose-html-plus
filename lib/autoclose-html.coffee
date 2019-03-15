@@ -18,7 +18,7 @@ module.exports =
         @autocloseHTMLEvents = new CompositeDisposable
 
         @closeAndCompleteCommand = atom.commands.add 'atom-text-editor',
-            'autoclose-html:close-and-complete': (e) =>
+            'autoclose-html-plus:close-and-complete': (e) =>
                 if @legacyMode
                     console.log(e)
                     e.abortKeyBinding()
@@ -27,19 +27,19 @@ module.exports =
                     this.execAutoclose()
 
 
-        atom.config.observe 'autoclose-html.neverClose', (value) =>
+        atom.config.observe 'autoclose-html-plus.neverClose', (value) =>
             @neverClose = value
 
-        atom.config.observe 'autoclose-html.forceInline', (value) =>
+        atom.config.observe 'autoclose-html-plus.forceInline', (value) =>
             @forceInline = value
 
-        atom.config.observe 'autoclose-html.forceBlock', (value) =>
+        atom.config.observe 'autoclose-html-plus.forceBlock', (value) =>
             @forceBlock = value
 
-        atom.config.observe 'autoclose-html.makeNeverCloseSelfClosing', (value) =>
+        atom.config.observe 'autoclose-html-plus.makeNeverCloseSelfClosing', (value) =>
             @makeNeverCloseSelfClosing = value
 
-        atom.config.observe 'autoclose-html.legacyMode', (value) =>
+        atom.config.observe 'autoclose-html-plus.legacyMode', (value) =>
             @legacyMode = value
             if @legacyMode
                 @_events()

@@ -10,4 +10,4 @@
 #'.workspace':
 
 'atom-text-editor[data-grammar~="html"]':
-	'>': 'autoclose-html:close-and-complete'
+	'>': 'autoclose-html-plus:close-and-complete'
