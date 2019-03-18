@@ -1,6 +1,12 @@
-# Auto Close HTML package for Atom Text Editor
+# Auto Close HTML+
 
 Will automatically add closing tags when you complete the opening tag.
+
+This is forked from the [Auto Close HTML package](https://atom.io/packages/autoclose-html) which is no longer being maintained.
+
+![Demo](demo.gif)
+
+> Other packages used in the above screen: [Threshold UI](https://atom.io/themes/threshold-ui), [Convergent Syntax](https://atom.io/themes/convergent-syntax), [Tool Bar](https://atom.io/packages/tool-bar) with [Flex Tool Bar](https://atom.io/packages/flex-tool-bar), and [Minimap](https://atom.io/packages/minimap)
 
 ## Installation
 
@@ -25,7 +31,7 @@ You can use Force Inline and Force Block preferences to override this.
 
 ## Bug Reports and Contributing
 
-If you find a bug, please feel free to file an issue, and/or try and fix it yourself and submit a PR.
+If you find a bug, please feel free to file an issue, and/or try fixing it yourself and submitting a PR.
 
 ## Options
 
@@ -43,7 +49,7 @@ Elements in this comma delimited list should *not* render a closing tag
 
 ### Make Never Close Elements Self Closing
 
-Will convert elements in Never Close list from `<br>` to `<br />`
+Will convert elements in Never Close list from `<tag>` to `<tag />`
 
 ### Legacy/International Mode
 
@@ -70,3 +76,7 @@ Enables the old style of completion detection using buffer events rather than ke
 
 #### 0.24.0
 - Stopped self closing tags from auto closing
+
+#### 0.25.0 (forked from [autoclose-html](https://atom.io/packages/autoclose-html))
+- Add support for XML and markdown files
+- Allow backtracking from automatic block tag to inline with single undo / Ctrl+Z
