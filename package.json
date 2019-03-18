@@ -1,7 +1,7 @@
 {
   "name": "autoclose-html-plus",
   "main": "./lib/autoclose-html",
-  "version": "0.24.0",
+  "version": "0.25.0",
   "description": "Automates closing of HTML/XML type tags in Atom",
   "repository": {
     "type": "git",
