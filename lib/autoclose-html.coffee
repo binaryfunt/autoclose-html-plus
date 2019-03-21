@@ -6,11 +6,10 @@ ConfigSchema = require('./configuration.coffee')
 module.exports =
     config: ConfigSchema.config
 
-    neverClose:[]
+    neverClose: []
     forceInline: []
     forceBlock: []
     makeNeverCloseSelfClosing: false
-    ignoreGrammar: false
     legacyMode: false
 
     activate: () ->
@@ -53,6 +52,7 @@ module.exports =
 
         @closeAndCompleteCommand.dispose()
 
+
     isInline: (eleTag) ->
         if @forceInline.indexOf("*") > -1
             return true
@@ -74,7 +74,8 @@ module.exports =
         ret
 
     isNeverClosed: (eleTag) ->
-        eleTag.toLowerCase() in @neverClose
+        return eleTag.toLowerCase() in @neverClose
+
 
     execAutoclose: () ->
         editor = atom.workspace.getActiveTextEditor()
@@ -124,6 +125,7 @@ module.exports =
             editor.setCursorBufferPosition [range.end.row + 1, atom.workspace.getActivePaneItem().getTabText().length * atom.workspace.getActivePaneItem().indentationForBufferRow(range.end.row + 1)]
             editor.groupChangesSinceCheckpoint(inlineCheckpoint)
 
+
     _events: () ->
         atom.workspace.observeTextEditors (textEditor) =>
             textEditor.observeGrammar (grammar) =>
@@ -134,6 +136,7 @@ module.exports =
                              setTimeout =>
                                  @execAutoclose()
                      @autocloseHTMLEvents.add(textEditor.autocloseHTMLbufferEvent)
+
 
     _unbindEvents: () ->
         @autocloseHTMLEvents.dispose()

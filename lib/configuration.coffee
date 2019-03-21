@@ -17,11 +17,11 @@ module.exports =
             default: ['br', 'hr', 'img', 'input', 'link', 'meta', 'area', 'base', 'col', 'command', 'embed', 'keygen', 'param', 'source', 'track', 'wbr']
         makeNeverCloseSelfClosing:
             title: 'Make Never Close Elements Self-Closing'
-            description: 'Closes elements with " />" (ie &lt;br&gt; becomes &lt;br /&gt;)'
+            description: 'Closes elements with " />" (ie &lt;tag&gt; becomes &lt;tag /&gt;)'
             type: 'boolean'
             default: true
         legacyMode:
             title: "Legacy/International Mode"
-            description: "Do not use this unless you use a non-US or non-QUERTY keyboard and/or the plugin isn't working otherwise. USING THIS OPTION WILL OPT YOU OUT OF NEW IMPROVEMENTS/FEATURES POST 0.22.0"
+            description: "Do not use this unless you use a non-US or non-QWERTY keyboard and/or the plugin isn't working otherwise. USING THIS OPTION WILL OPT YOU OUT OF NEW IMPROVEMENTS/FEATURES POST 0.22.0"
             type: 'boolean'
             default: false
