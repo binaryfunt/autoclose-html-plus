@@ -12,6 +12,8 @@ module.exports =
     makeNeverCloseSelfClosing: false
     legacyMode: false
 
+    inlineByDefault: ['a', 'abbr', 'acronym', 'audio', 'b', 'bdi', 'bdo', 'big', 'button', 'canvas', 'cite', 'code', 'data', 'datalist', 'del', 'dfn', 'em', 'i', 'iframe', 'ins', 'kbd', 'label', 'map', 'mark', 'meter', 'noscript', 'object', 'output', 'picture', 'progress', 'q', 'ruby', 's', 'samp', 'script', 'select', 'slot', 'small', 'span', 'strong', 'sub', 'sup', 'svg', 'template', 'textarea', 'time', 'u', 'tt', 'var', 'video']
+
     activate: () ->
 
         @autocloseHTMLEvents = new CompositeDisposable
@@ -67,11 +69,8 @@ module.exports =
         else if eleTag.toLowerCase() in @forceInline
             return true
 
-        document.body.appendChild ele
-        ret = window.getComputedStyle(ele).getPropertyValue('display') in ['inline', 'inline-block', 'none']
-        document.body.removeChild ele
+        return eleTag.toLowerCase() in @inlineByDefault
 
-        ret
 
     isNeverClosed: (eleTag) ->
         return eleTag.toLowerCase() in @neverClose
