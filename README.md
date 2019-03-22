@@ -80,3 +80,6 @@ Enables the old style of completion detection using buffer events rather than ke
 #### 0.25.0 (forked from [autoclose-html](https://atom.io/packages/autoclose-html))
 - Add support for XML and markdown files
 - Allow backtracking from automatic block tag to inline with single undo / Ctrl+Z
+
+#### 0.26.0
+- Add option for unrecognised tags (e.g. custom XML tags) to be made block tags (enabled by default)
