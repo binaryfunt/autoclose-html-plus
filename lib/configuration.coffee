@@ -20,6 +20,11 @@ module.exports =
             description: 'Closes elements with " />" (ie &lt;tag&gt; becomes &lt;tag /&gt;)'
             type: 'boolean'
             default: true
+        makeUnrecognizedBlock:
+            title: 'Make Unrecognized Elements Block Tags'
+            description: 'Unrecognized/non-standard HTML elements will render their closing tags after a tabbed line. This may be useful for custom XML tags'
+            type: 'boolean'
+            default: true
         legacyMode:
             title: "Legacy/International Mode"
             description: "Do not use this unless you use a non-US or non-QWERTY keyboard and/or the plugin isn't working otherwise. USING THIS OPTION WILL OPT YOU OUT OF NEW IMPROVEMENTS/FEATURES POST 0.22.0"

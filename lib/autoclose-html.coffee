@@ -10,6 +10,7 @@ module.exports =
     forceInline: []
     forceBlock: []
     makeNeverCloseSelfClosing: false
+    makeUnrecognizedBlock: false
     legacyMode: false
 
     inlineByDefault: ['a', 'abbr', 'acronym', 'audio', 'b', 'bdi', 'bdo', 'big', 'button', 'canvas', 'cite', 'code', 'data', 'datalist', 'del', 'dfn', 'em', 'i', 'iframe', 'ins', 'kbd', 'label', 'map', 'mark', 'meter', 'noscript', 'object', 'output', 'picture', 'progress', 'q', 'ruby', 's', 'samp', 'script', 'select', 'slot', 'small', 'span', 'strong', 'sub', 'sup', 'svg', 'template', 'textarea', 'time', 'u', 'tt', 'var', 'video']
@@ -40,6 +41,9 @@ module.exports =
         atom.config.observe 'autoclose-html-plus.makeNeverCloseSelfClosing', (value) =>
             @makeNeverCloseSelfClosing = value
 
+        atom.config.observe 'autoclose-html-plus.makeUnrecognizedBlock', (value) =>
+            @makeUnrecognizedBlock = value
+
         atom.config.observe 'autoclose-html-plus.legacyMode', (value) =>
             @legacyMode = value
             if @legacyMode
@@ -69,7 +73,13 @@ module.exports =
         else if eleTag.toLowerCase() in @forceInline
             return true
 
-        return eleTag.toLowerCase() in @inlineByDefault
+        if @makeUnrecognizedBlock
+            return eleTag.toLowerCase() in @inlineByDefault
+        else
+            document.body.appendChild ele
+            ret = window.getComputedStyle(ele).getPropertyValue('display') in ['inline', 'inline-block', 'none']
+            document.body.removeChild ele
+            return ret
 
 
     isNeverClosed: (eleTag) ->
