@@ -90,8 +90,27 @@ module.exports =
         editor = atom.workspace.getActiveTextEditor()
         range = editor.selections[0].getBufferRange()
         line = editor.buffer.getLines()[range.end.row]
-        partial = line.substr 0, range.start.column
+        partial = line.substr(0, range.start.column)
         partial = partial.substr(partial.lastIndexOf('<'))
+        console.log partial
+
+        # If no opening tag detected on this line, check previous lines:
+        if partial is '>'
+            originalPartial = partial
+            count = 1
+            loop
+                if count >= 10
+                    partial = originalPartial
+                    break
+                line = editor.buffer.getLines()[range.end.row - count]
+                partial = line.substr(line.lastIndexOf('<'))
+                console.log partial
+                break if partial is '>' # FIXME: Stop adding closing tag to already closed element if you type '>' after an '>' on a line that doesn't have a '<' on it
+                if partial.substr(0, 1) is '<'
+                    partial = partial.concat('>')
+                    console.log partial
+                    break
+                count++
 
         return if partial.substr(partial.length - 1, 1) is '/'
 
@@ -109,7 +128,9 @@ module.exports =
         while((index = partial.indexOf("'")) isnt -1)
             partial = partial.slice(0, index) + partial.slice(partial.indexOf("'", index + 1) + 1)
 
+        console.log partial
         return if not (matches = partial.match(isOpeningTagLikePattern))?
+        console.log matches
 
         eleTag = matches[matches.length - 1]
 
