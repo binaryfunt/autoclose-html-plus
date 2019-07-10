@@ -97,17 +97,18 @@ module.exports =
         # If no opening tag detected on this line, check previous lines:
         if partial is '>'
             originalPartial = partial
+            partial = line.substr(0, range.start.column)
             count = 1
             loop
                 if count >= 10
                     partial = originalPartial
                     break
                 line = editor.buffer.getLines()[range.end.row - count]
-                partial = line.substr(line.lastIndexOf('<'))
+                partial = line.concat(partial)
                 console.log partial
-                break if partial is '>' # FIXME: Stop adding closing tag to already closed element if you type '>' after an '>' on a line that doesn't have a '<' on it
-                if partial.substr(0, 1) is '<'
-                    partial = partial.concat('>')
+                if partial.lastIndexOf('<') >= 0
+                    # partial = partial.concat('>')
+                    partial = partial.substr(partial.lastIndexOf('<'))
                     console.log partial
                     break
                 count++
