@@ -92,7 +92,6 @@ module.exports =
         line = editor.buffer.getLines()[range.end.row]
         partial = line.substr(0, range.start.column)
         partial = partial.substr(partial.lastIndexOf('<'))
-        console.log partial
 
         # If no opening tag detected on this line, check previous lines:
         if partial is '>'
@@ -105,7 +104,6 @@ module.exports =
                     break
                 line = editor.buffer.getLines()[range.end.row - count]
                 partial = line.concat(partial)
-                console.log partial
                 if partial.lastIndexOf('<') >= 0
                     # partial = partial.concat('>')
                     partial = partial.substr(partial.lastIndexOf('<'))
@@ -129,9 +127,7 @@ module.exports =
         while((index = partial.indexOf("'")) isnt -1)
             partial = partial.slice(0, index) + partial.slice(partial.indexOf("'", index + 1) + 1)
 
-        console.log partial
         return if not (matches = partial.match(isOpeningTagLikePattern))?
-        console.log matches
 
         eleTag = matches[matches.length - 1]
 
