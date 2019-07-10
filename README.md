@@ -59,27 +59,30 @@ Enables the old style of completion detection using buffer events rather than ke
 
 ## Changelog
 
-#### 0.20.0
-- HTML (Jinja Templates), Ember HTMLBars, JavaScript with JSX added to default grammars, per user requests
-- Dispose events on deactivate (should prevent double closing after an upgrade in the future, although I don't think it will help for this release)
-- Added ability to use "\*" for Force Inline Options
-- Some Readme cleanup
+#### 0.27.0
+- Tags broken over lines now autoclose
 
-#### 0.21.0
-- Fixed double closing after changing grammar
-
-#### 0.22.0
-- Better way of handling events, solves rebinding problems **and** having to define grammars to apply to
-
-#### 0.23.0
-- Added legacy mode for users having problems with event handling introduced in 0.22.0
-
-#### 0.24.0
-- Stopped self closing tags from auto closing
+#### 0.26.0
+- Add option for unrecognised tags (e.g. custom XML tags) to be made block tags (enabled by default)
 
 #### 0.25.0 (forked from [autoclose-html](https://atom.io/packages/autoclose-html))
 - Add support for XML and markdown files
 - Allow backtracking from automatic block tag to inline with single undo / Ctrl+Z
 
-#### 0.26.0
-- Add option for unrecognised tags (e.g. custom XML tags) to be made block tags (enabled by default)
+#### 0.24.0
+- Stopped self closing tags from auto closing
+
+#### 0.23.0
+- Added legacy mode for users having problems with event handling introduced in 0.22.0
+
+#### 0.22.0
+- Better way of handling events, solves rebinding problems **and** having to define grammars to apply to
+
+#### 0.21.0
+- Fixed double closing after changing grammar
+
+#### 0.20.0
+- HTML (Jinja Templates), Ember HTMLBars, JavaScript with JSX added to default grammars, per user requests
+- Dispose events on deactivate (should prevent double closing after an upgrade in the future, although I don't think it will help for this release)
+- Added ability to use "\*" for Force Inline Options
+- Some Readme cleanup
