@@ -107,7 +107,6 @@ module.exports =
                 if partial.lastIndexOf('<') >= 0
                     # partial = partial.concat('>')
                     partial = partial.substr(partial.lastIndexOf('<'))
-                    console.log partial
                     break
                 count++
 
