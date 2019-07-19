@@ -59,6 +59,9 @@ Enables the old style of completion detection using buffer events rather than ke
 
 ## Changelog
 
+#### 0.27.1
+- Fix uncaught TypeError when no opening `<` is present and the line is less than 10 below the zeroth line (thanks to [UziTech](https://github.com/UziTech))
+
 #### 0.27.0
 - Tags broken over lines now autoclose
 
