@@ -99,7 +99,7 @@ module.exports =
             partial = line.substr(0, range.start.column)
             count = 1
             loop
-                if count >= 10
+                if count >= 10 or count > range.end.row
                     partial = originalPartial
                     break
                 line = editor.buffer.getLines()[range.end.row - count]
