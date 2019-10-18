@@ -178,11 +178,20 @@ describe('Auto Close HTML+', () => {
         });
 
         describe('When a complex unrecognised tag is closed', () => {
-            beforeEach(() => {
-                editor.setText('<App.Res x:Url="http://ms.ft"');
-                sendAutocloseCmd();
+            beforeEach(() => editor.setText('<App.Res x:Url="http://ms.ft"'));
+
+            describe('If makeUnrecognizedBlock is true', () => {
+                beforeEach(sendAutocloseCmd);
+                it('inserts closing tag 2 lines down', () => expect(editor.lineTextForBufferRow(2)).toBe('</App.Res>'));
             });
-            it('Inserts closing tag 2 lines down', () => expect(editor.lineTextForBufferRow(2)).toBe('</App.Res>'));
+
+            describe('If makeUnrecognizedBlock is false', () => {
+                beforeEach(() => {
+                    atom.config.set('autoclose-html-plus.makeUnrecognizedBlock', 'false');
+                    sendAutocloseCmd();
+                });
+                it('inserts closing tag on same line', () => expect(editor.getText()).toBe('<App.Res x:Url="http://ms.ft"></App.Res>'));
+            });
         });
     });
 
