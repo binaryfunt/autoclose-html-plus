@@ -17,3 +17,9 @@
 
 'atom-text-editor[data-grammar~="gfm"]':
 	'>': 'autoclose-html-plus:close-and-complete'
+
+'atom-text-editor[data-grammar~="js"]':
+	'>': 'autoclose-html-plus:close-and-complete'
+	
+'atom-text-editor[data-grammar~="vue"]':
+	'>': 'autoclose-html-plus:close-and-complete'
