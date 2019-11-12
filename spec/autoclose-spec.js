@@ -1,6 +1,6 @@
 describe('Auto Close HTML+', () => {
 
-    let editor, editorView, activationPromise;
+    let editor, editorView;
 
     const sendAutocloseCmd = () => {
         atom.commands.dispatch(editorView, 'autoclose-html-plus:close-and-complete');
